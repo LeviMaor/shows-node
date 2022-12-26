@@ -3,9 +3,22 @@ const router = express.Router();
 const Actor = require('../models/actor');
 
 // All Actors Route
-router.get('/', (req, res)=>{
-  res.render('actors/index');
+router.get('/', async (req, res)=>{
+  let searchOptions = {};
+  if(req.query.name != null && req.query.name !== '') {
+    searchOptions.name = new RegExp(req.query.name, 'i');
+  }
+  try{
+    const actors = await Actor.find(searchOptions); 
+    res.render('actors/index', {
+      actors: actors,
+      searchOptions: req.query
+    });
+  } catch {
+    res.redirect('/');
+  }  
 });
+
 
 // New Actor Route
 router.get('/new', (req, res)=>{
