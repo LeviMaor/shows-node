@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 
 const indexRouter = require('./routes/index');
 const actorRouter = require('./routes/actors');
-
+const showRouter = require('./routes/shows');
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -27,6 +27,7 @@ db.once('open', () => console.log('Connected to mongoose'));
 
 app.use('/', indexRouter);
 app.use('/actors', actorRouter);
+app.use('/shows', showRouter);
 
 app.listen(process.env.PORT || 3000);
 
@@ -37,3 +38,5 @@ app.listen(process.env.PORT || 3000);
 
 
 // mongodb+srv://user:pXjPRrbu85Ay7In6@cluster0.g9ww6ei.mongodb.net/?retryWrites=true&w=majority
+
+// mongodb+srv://user:<password>@cluster0.g9ww6ei.mongodb.net/?retryWrites=true&w=majority
