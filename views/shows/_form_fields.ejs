@@ -31,7 +31,7 @@
 </div>
 <div>
   <label>Average Number Of Episodes Per Season</label>
-  <input type="number" name="numOfSeasons" min="1"
+  <input type="number" name="averageNumOfEpisodesPerSeason" min="1"
         value="<%= show.averageNumOfEpisodesPerSeason %>">
 </div>
 <div>
@@ -42,13 +42,14 @@
   <label>Writers</label>
   <input type="text" name="writers" value="<%= show.writers %>">
 </div>
+
 <div>
   <label>Score</label>
   <input type="text" name="score" value="<%= show.score %>">
 </div>
 <div>
-  <label>Poster</label>
-  <input type="file" name="poster">
+  <label>Cover</label>
+  <input type="file" name="cover" class="filepond">
 </div>
 <div>
   <label>Description</label>

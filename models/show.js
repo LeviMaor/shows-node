@@ -46,11 +46,11 @@ const showSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    posterImage: {
+    coverImage: {
         type: Buffer,
         required: true
     },
-    posterImageType: {
+    coverImageType: {
         type: String,
         required: true
     },
@@ -59,6 +59,12 @@ const showSchema = new mongoose.Schema({
         required: true,
         default: Date.now
     },
+  })
+
+  showSchema.virtual('coverImagePath').get(function(){
+    if (this.coverImage != null && this.coverImageType != null) {
+        return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
+      }
   })
 
 module.exports = mongoose.model('Show', showSchema);
