@@ -1,6 +1,8 @@
-<h2>Recently Added</h2>
+<h2 class="page-header">Recently Added</h2>
 <div>
-  <% shows.forEach(show => { %>
-    <img height="150" width="100" src="<%= show.coverImagePath %>">
+  <% tvshows.forEach(tvshow => { %>
+    <a href="/tvshows/<%= tvshow.id %>">
+      <img height="150" width="100" src="<%= tvshow.coverImagePath %>">
+    </a>
   <% }) %>
 </div>

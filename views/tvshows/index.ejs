@@ -1,0 +1,45 @@
+<% const genre = [' Action', ' Drama', ' Comedy', ' Horror', ' Fantasy', ' Crime', ' Adventure', ' War', ' Sports', ' Psychological'] %>
+<h2 class="page-header">Search Tv Show</h2>
+<form action="/tvshows" method="GET">
+  <div class="form-row">
+    <div class="form-item">
+      <label>Title</label>
+      <input type="text" name="title" value="<%= searchOptions.title %>">
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+        <label>Genre</label>
+        <select name="genre">
+            <% genre.forEach(g => { %>
+                <% if (g === searchOptions.genre) { %>
+                    <option selected label="<%= g %>" value="<%= g %>"></option>
+                    <% } else { %>
+                            <option value="<%= g %>"><%= g %></option>
+                            <% } %>
+                        <% }) %>
+        </select>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-item">
+      <label>Published After</label>
+      <input type="date" name="publishedAfter" value="<%= searchOptions.publishedAfter %>">
+    </div>
+    <div class="form-item">
+      <label>Published Before</label>
+      <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
+    </div>
+  </div>
+
+  <div class="form-row form-row-end">
+    <button class="btn btn-primary" type="submit">Search</button>
+  </div>
+</form>
+<div>
+  <% tvshows.forEach(tvshow => { %>
+    <a href="/tvshows/<%= tvshow.id %>">
+      <img height="150" width="100" src="<%= tvshow.coverImagePath %>">
+    </a>
+  <% }) %>
+</div>

@@ -1,0 +1,65 @@
+<% const genre = [' Action', ' Drama', ' Comedy', ' Horror', ' Fantasy', ' Crime', ' Adventure', ' War', ' Sports', ' Psychological'] %>
+
+<div class="form-row">
+  <div class="form-item title">
+    <label>Title</label>
+    <input type="text" name="title" value="<%= tvshow.title %>">
+  </div>
+  <div class="form-item"> 
+    <label>Actor</label>
+    <select name="actor">
+    <% actors.forEach(actor => { %>
+      <% if (actor.id === tvshow.actor) { %>
+        <option selected label="<%= actor.name %>" value="<%= actor.id %>">
+      <% } else { %>
+        <option label="<%= actor.name %>" value="<%= actor.id %>">
+      <% } %>
+    <% }) %>
+    </select>
+  </div>
+</div>
+
+
+  <div class="form-row">
+      <div class="form-item gen">
+          <span class="gen">Genre </span>
+          <% genre.forEach(g => { %>
+              <label><input name="genre" type="checkbox" value="<%= g %>"><%= g %></label>
+              <% }) %>
+      </div>
+  </div>
+
+
+  <div class="form-row">
+    <div class="form-item"> 
+      <label>Supporting Actors</label>
+      <input type="text" name="supportingActors" min="1" value="<%= tvshow.supportingActors %>">
+    </div>
+    <div class="form-item">
+      <label>Publish Date</label>
+      <input type="date" name="publishDate"
+        value="<%= tvshow.publishDate == null ? '' : tvshow.publishDate.toISOString().split('T')[0] %>">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-item">
+      <label>Duration</label>
+      <input type="number" name="duration" min="1" value="<%= tvshow.duration %>">
+    </div>
+    <div class="form-item">
+      <label>Writers</label>
+      <input type="text" name="writers" min="1" value="<%= tvshow.writers %>">
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-item cover-item">
+      <label>Cover</label>
+      <input type="file" name="cover" class="filepond">
+    </div>
+    <div class="form-item">
+      <label>Description</label>
+      <textarea name="description"><%= tvshow.description %></textarea>
+    </div>
+  </div>

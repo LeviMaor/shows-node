@@ -1,0 +1,16 @@
+<h2 class="page-header"><%= actor.name %></h2>
+<img width="100" height="150" src="<%= actor.coverImagePath %>">
+<div>Description: <%= actor.description %></div>
+<div class="btn-row">
+    <a class="btn btn-primary" href="/actors/<%= actor.id %>/edit">Edit</a>
+    <%- include('../partials/deleteForm',
+                { url: `/actors/${actor.id}` }) %>
+</div>
+<% if (tvshowsByActor.length > 0) { %>
+  <h2 class="page-header">Tv Shows By Actor</h2>
+  <% tvshowsByActor.forEach(tvshow => { %>
+    <a href="/tvshows/<%= tvshow.id %>">
+      <img height="150" width="100" src="<%= tvshow.coverImagePath %>">
+    </a>
+  <% }) %>
+<% } %>

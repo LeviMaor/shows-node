@@ -55,7 +55,7 @@ router.post('/', async (req, res) => {
   try{
     const newShow = await show.save();
     //res.redirect(`shows/${newShow.id}`);
-    res.redirect(`shows`);
+    res.redirect('shows');
   }catch {
     renderNewPage(res, show, true);
   }
@@ -72,18 +72,19 @@ function saveCover(show, coverEncoded) {
 
 
 async function renderNewPage(res, show, hasError = false) {
-  try{
-    const actors = await Actor.find({});
+  try {
+    const actors = await Actor.find({})
     const params = {
       actors: actors,
       show: show
     }
-    if(hasError) {
-      params.errorMessage = 'Error Creating A Show';
+    if (hasError){ 
+      console.log(hasError);
+      params.errorMessage = 'Error Creating A SHOW!!!!'
     }
     res.render('shows/new', params)
   } catch {
-    res.redirect('/shows');
+    res.redirect('/shows')
   }
 }
 module.exports = router;

@@ -1,0 +1,13 @@
+<h2 class="page-header"><%= tvshow.title %></h2>
+<img width="100" height="150" src="<%= tvshow.coverImagePath %>">
+<div>Actor: <%= tvshow.actor.name %></div>
+<div>Publish Date: <%= tvshow.publishDate.toDateString() %></div>
+<div>Genre: <%= tvshow.genre %></div>
+<div>Writers: <%= tvshow.writers %></div>
+<div>Supporting Actors: <%= tvshow.supportingActors %></div>
+<div>Duration: <%= tvshow.duration %></div>
+<div>Description: <%= tvshow.description %></div>
+
+<a href="/tvshows/<%= tvshow.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/tvshows/${tvshow.id}` }) %>
+<a href="/actors/<%= tvshow.actor.id %>">View Actor</a>

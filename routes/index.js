@@ -1,15 +1,15 @@
-const express = require('express');
-const router = express.Router();
-const Show = require('../models/show');
+const express = require('express')
+const router = express.Router()
+const Tvshow = require('../models/tvshow')
 
-router.get('/', async (req, res)=>{
-  let shows
-  try{
-    shows = await Show.find().sort({ createdAt: 'desc'}).limit(10).exec();
+router.get('/', async (req, res) => {
+  let tvshows
+  try {
+    tvshows = await Tvshow.find().sort({ createdAt: 'desc' }).limit(10).exec()
   } catch {
-    shows = [];
+    tvshows = []
   }
-  res.render('index' , {shows: shows });
-});
+  res.render('index', { tvshows: tvshows })
+})
 
-module.exports = router;
+module.exports = router
