@@ -1,0 +1,12 @@
+<% tvShowCoverClass =locals.large ? 'tvshow-cover-large' : '' %> 
+<% tvShowGridClass =locals.large ? 'tvshow-grid-large' : '' %> 
+
+
+<div class="tvshow-grid <%= tvShowGridClass %> ">
+  <% tvshows.forEach(tvshow => { %>
+    <a href="/tvshows/<%= tvshow.id %>">
+      <img class="tvshow-cover <%= tvShowCoverClass %> " src="<%= tvshow.coverImagePath %>">
+    </a>
+  <% }) %>
+</div>
+

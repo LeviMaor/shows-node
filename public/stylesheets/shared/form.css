@@ -22,16 +22,14 @@
   margin-left: 0;
 }
 
-.cover-item {
+.form-item-no-grow {
   flex-grow: 0;
 }
 
+
+
 .form-row-end {
   justify-content: flex-end;
-}
-
-.actor-name input {
-  width: 50%;
 }
 
 .form-item > label {

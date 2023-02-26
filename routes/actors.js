@@ -32,8 +32,9 @@ router.post('/', async (req, res) => {
     name: req.body.name,
     description: req.body.description
   })
-  saveCover(actor, req.body.cover)
+
   try {
+    saveCover(actor, req.body.cover)
     const newActor = await actor.save()
     res.redirect(`actors/${newActor.id}`)
   } catch {

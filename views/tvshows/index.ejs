@@ -31,15 +31,9 @@
       <input type="date" name="publishedBefore" value="<%= searchOptions.publishedBefore %>">
     </div>
   </div>
-
+<br>
   <div class="form-row form-row-end">
     <button class="btn btn-primary" type="submit">Search</button>
   </div>
 </form>
-<div>
-  <% tvshows.forEach(tvshow => { %>
-    <a href="/tvshows/<%= tvshow.id %>">
-      <img height="150" width="100" src="<%= tvshow.coverImagePath %>">
-    </a>
-  <% }) %>
-</div>
+<%- include('../partials/tvShowGrid', {tvshows: tvshows, large: true}) %> 

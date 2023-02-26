@@ -1,0 +1,63 @@
+:root {
+  --tvshow-cover-width: 217px;
+  --tvshow-cover-width-large: 325px;
+  --tvshow-cover-aspect-ratio: 0.75;
+}
+
+.tvshow-cover {
+  width: var(--tvshow-cover-width);
+  height: calc(var(--tvshow-cover-width) / var(--tvshow-cover-aspect-ratio));
+}
+
+.tvshow-cover-large {
+  --tvshow-cover-width: var(--tvshow-cover-width-large);
+}
+
+.tvshow-grid {
+  display: grid;
+  justify-content: center;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, var(--tvshow-cover-width));
+}
+
+.tvshow-grid-large {
+  grid-template-columns: repeat(auto-fill, var(--tvshow-cover-width-large));
+}
+
+.tvshow-details {
+  display: flex;
+}
+
+.tvshow-details-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  align-self: flex-start;
+  width: 130%;
+}
+
+.tvshow-details-grid {
+  display: grid;
+  align-content: flex-start;
+  align-items: center;
+  grid-gap: 2rem;
+  row-gap: 0.5rem;
+  grid-template-columns: auto auto;
+  margin-left: 2rem;
+}
+
+.tvshow-details-btn-grid {
+  display: grid;
+  justify-items: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-areas:
+    "edit delete"
+    "actor actor";
+  grid-gap: .5rem;
+  margin-top: .5rem;
+}
+
+.tvshow-details-actor-button {
+  grid-area: actor;
+  justify-self: stretch;
+}

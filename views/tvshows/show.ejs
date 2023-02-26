@@ -1,13 +1,28 @@
 <h2 class="page-header"><%= tvshow.title %></h2>
-<img width="100" height="150" src="<%= tvshow.coverImagePath %>">
-<div>Actor: <%= tvshow.actor.name %></div>
-<div>Publish Date: <%= tvshow.publishDate.toDateString() %></div>
-<div>Genre: <%= tvshow.genre %></div>
-<div>Writers: <%= tvshow.writers %></div>
-<div>Supporting Actors: <%= tvshow.supportingActors %></div>
-<div>Duration: <%= tvshow.duration %></div>
-<div>Description: <%= tvshow.description %></div>
+<div class="tvshow-details">
+  <div>
+    <img class="tvshow-cover" src="<%= tvshow.coverImagePath %>">
+    <div class="tvshow-details-btn-grid">
+      <a class="btn btn-primary" href="/tvshows/<%= tvshow.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', { url: `/tvshows/${tvshow.id}` }) %>
+      <a class="btn btn-primary tvshow-details-actor-button" href="/actors/<%= tvshow.actor.id %>">View Actor</a>
+    </div>
+  </div>
 
-<a href="/tvshows/<%= tvshow.id %>/edit">Edit</a>
-<%- include('../partials/deleteForm', { url: `/tvshows/${tvshow.id}` }) %>
-<a href="/actors/<%= tvshow.actor.id %>">View Actor</a>
+  <div class="tvshow-details-grid">
+    <div class="tvshow-details-label">Actor:</div>
+    <div><%= tvshow.actor.name %></div>
+    <div class="tvshow-details-label">Publish Date:</div>
+    <div><%= tvshow.publishDate.toDateString() %></div>
+    <div class="tvshow-details-label">Genre:</div>
+    <div><%= tvshow.genre %></div>
+    <div class="tvshow-details-label">Writers:</div>
+    <div><%= tvshow.writers %></div>
+    <div class="tvshow-details-label">Supporting Actors:</div>
+    <div><%= tvshow.supportingActors %></div>
+    <div class="tvshow-details-label">Duration:</div>
+    <div><%= tvshow.duration %></div>
+    <div class="tvshow-details-label">Description:</div>
+    <div><%= tvshow.description %></div>
+  </div>
+</div>

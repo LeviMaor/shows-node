@@ -47,9 +47,10 @@ router.post('/', async (req, res) => {
     supportingActors: req.body.supportingActors,
     genre: req.body.genre
   })
-  saveCover(tvshow, req.body.cover)
+
 
   try {
+    saveCover(tvshow, req.body.cover)
     const genreString = req.body.genre.toString()
     tvshow.genre = genreString
     const newTvshow = await tvshow.save()
